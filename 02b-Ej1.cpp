@@ -7,7 +7,8 @@ using namespace std;
 struct Float {
     uint32_t sign;        
     uint32_t exponent;    
-    uint32_t significand; 
+    uint32_t significand;   
+};
 
 Float multiplyFloats(Float a, Float b) {
     if (a.significand == 0 || b.significand == 0) {
@@ -46,9 +47,9 @@ Float multiplyFloats(Float a, Float b) {
 int main() {
     float input_a, input_b;
 
-    cout << "Ingrese el primer valor en punto flotante: ";
+    cout << "ingrese el primer valor en punto flotante: ";
     cin >> input_a;
-    cout << "Ingrese el segundo valor en punto flotante: ";
+    cout << "ingrese el segundo valor en punto flotante: ";
     cin >> input_b;
 
     Float float_a = {0, 127, *reinterpret_cast<uint32_t*>(&input_a)};
@@ -56,13 +57,13 @@ int main() {
 
     Float result = multiplyFloats(float_a, float_b);
 
-    cout << "Resultado: " << endl;
-    cout << "Signo: " << result.sign << endl;
-    cout << "Exponente: " << result.exponent << endl;
-    cout << "Significando: " << result.significand << endl;
+    cout << "resultado: " << endl;
+    cout << "signo: " << result.sign << endl;
+    cout << "exponente: " << result.exponent << endl;
+    cout << "significando: " << result.significand << endl;
 
     float result_native = input_a * input_b;
-    cout << "Resultado nativo: " << result_native << endl;
+    cout << "resultado nativo: " << result_native << endl;
 
     return 0;
 }
